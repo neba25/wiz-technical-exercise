@@ -1,0 +1,8 @@
+Wiz Technical Exercise
+Candidate: Kathiravan
+
+This application is deployed on Kubernetes (Amazon EKS).
+
+MongoDB runs on an EC2 instance.
+
+Containerized using Docker.
