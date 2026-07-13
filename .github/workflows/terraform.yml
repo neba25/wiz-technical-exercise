@@ -2,14 +2,17 @@ name: Terraform Infrastructure
 
 on:
   push:
+    branches:
+      - main
     paths:
       - "terraform/**"
       - ".github/workflows/terraform.yml"
-    branches:
-      - main
+
+  workflow_dispatch:
 
 jobs:
   terraform:
+    name: Terraform CI/CD
     runs-on: ubuntu-latest
 
     defaults:
@@ -40,15 +43,25 @@ jobs:
       - name: Terraform Validate
         run: terraform validate
 
-      - name: Run Checkov Scan
+      - name: Run Checkov Security Scan
         uses: bridgecrewio/checkov-action@master
         with:
           directory: terraform
           framework: terraform
           quiet: true
+          soft_fail: true
+          output_format: sarif
+          output_file_path: results.sarif
+
+      - name: Upload Checkov Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: checkov-report
+          path: terraform/results.sarif
 
       - name: Terraform Plan
-        run: terraform plan
+        run: terraform plan -out=tfplan
 
       - name: Terraform Apply
-        run: terraform apply -auto-approve
+        if: github.ref == 'refs/heads/main'
+        run: terraform apply -auto-approve tfplan
