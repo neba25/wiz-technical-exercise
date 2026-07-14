@@ -26,7 +26,6 @@ resource "aws_instance" "mongodb" {
 
   subnet_id = module.vpc.public_subnets[0]
 
-  key_name = var.key_name
 
   vpc_security_group_ids = [
     aws_security_group.mongodb.id
