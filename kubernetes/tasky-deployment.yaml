@@ -21,7 +21,7 @@ spec:
       containers:
       - name: tasky
 
-        image: 432305066870.dkr.ecr.us-east-2.amazonaws.com/tasky:latest
+        image: 432305066870.dkr.ecr.us-east-2.amazonaws.com/wiz-todo-api:latest
 
         imagePullPolicy: Always
 
