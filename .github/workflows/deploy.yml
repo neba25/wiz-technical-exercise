@@ -1,10 +1,11 @@
 name: Deploy to Amazon EKS
 
 on:
-  workflow_run:
-    workflows: ["Build and Push Tasky Image to Amazon ECR"]
-    types:
-      - completed
+  workflow_dispatch:
+  #workflow_run:
+  #  workflows: ["Build and Push Tasky Image to Amazon ECR"]
+  #  types:
+  #    - completed
 
 jobs:
   deploy:

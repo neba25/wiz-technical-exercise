@@ -1,9 +1,10 @@
 name: Build and Push Tasky Image to Amazon ECR
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
+  #push:
+   # branches:
+  #    - main
 
 env:
   ECR_REPOSITORY: tasky

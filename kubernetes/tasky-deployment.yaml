@@ -21,7 +21,7 @@ spec:
       containers:
       - name: tasky
 
-        image: 369504341517.dkr.ecr.ap-south-1.amazonaws.com/tasky:latest
+        image: 432305066870.dkr.ecr.us-east-2.amazonaws.com/tasky:latest
 
         imagePullPolicy: Always
 
