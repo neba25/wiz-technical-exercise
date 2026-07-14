@@ -28,6 +28,7 @@ jobs:
 
       - name: Deploy
         run: |
+          kubectl apply -f kubernetes/namespace.yaml
           kubectl apply -f kubernetes/tasky-secret.yaml
           kubectl apply -f kubernetes/tasky-deployment.yaml
           kubectl apply -f kubernetes/tasky-service.yaml
