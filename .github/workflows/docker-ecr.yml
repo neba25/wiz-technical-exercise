@@ -7,7 +7,7 @@ on:
   #    - main
 
 env:
-  ECR_REPOSITORY: tasky
+  ECR_REPOSITORY: wiz-todo-api
   IMAGE_TAG: latest
 
 jobs:
